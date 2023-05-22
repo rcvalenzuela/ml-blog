@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Understanding Machine Learning",
+    "section": "",
+    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMay 21, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nConfiguring the blog\n\n\n\n\n\n\n\nquarto\n\n\ngithub\n\n\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Configuring the blog",
+    "section": "",
+    "text": "On this post I keep a record of all the steps needed to configure/publish the blog"
+  },
+  {
+    "objectID": "posts/welcome/index.html#publishing-to-github-pages",
+    "href": "posts/welcome/index.html#publishing-to-github-pages",
+    "title": "Configuring the blog",
+    "section": "Publishing to github-pages",
+    "text": "Publishing to github-pages\nI follow the steps described in the Publish command section of the Github pages part of the quarto documentation."
+  }
+]
