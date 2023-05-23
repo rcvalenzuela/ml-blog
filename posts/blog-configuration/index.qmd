@@ -17,5 +17,7 @@ In order to use quarto publish from the command line I create a Personal Access 
 
 ## Adding custom domain
 
-I follow the guide [Managing a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#about-custom-domain-configuration)
+We configure only the main `.github.io` repository with a custom domain in Github as explained in the guide [Managing a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#about-custom-domain-configuration)
+
+The guide states that you must only configure a `CNAME` in the DNS settings but it was necessary to add four `A Record` as explained in the [configuring an apex domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain) section of the same page.
 
