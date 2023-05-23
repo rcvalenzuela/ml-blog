@@ -1,9 +1,9 @@
 ---
-title: "Sources for time series data"
+title: "Predictive maintenance"
 author: "Rene Valenzuela"
 date: "2023-05-21"
 categories: [news, code, analysis]
 image: "image.jpg"
 ---
 
-This is a post with executable code.
+We will use the dataset available [here](https://archive.ics.uci.edu/ml/datasets/AI4I+2020+Predictive+Maintenance+Dataset)
