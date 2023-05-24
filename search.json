@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Understanding Machine Learning",
     "section": "",
-    "text": "Sources for time series data\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMay 21, 2023\n\n\nRene Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nConfiguring the blog\n\n\n\n\n\n\n\nquarto\n\n\ngithub\n\n\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\nNo matching items"
+    "text": "Querying Synapse from python\n\n\n\n\n\n\n\npython\n\n\nsynapse\n\n\n\n\n\n\n\n\n\n\n\nDec 5, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nPredictive maintenance\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMay 21, 2023\n\n\nRene Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nConfiguring the blog\n\n\n\n\n\n\n\nquarto\n\n\ngithub\n\n\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -14,11 +14,11 @@
     "text": "About this blog"
   },
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Sources for time series data",
+    "objectID": "posts/connecting-to-synapse/index.html",
+    "href": "posts/connecting-to-synapse/index.html",
+    "title": "Querying Synapse from python",
     "section": "",
-    "text": "This is a post with executable code."
+    "text": "The radius of the circle is 10.\n\n\nIn this post I outline the steps needed to connect to a Synapse database from python\nI will be following the steps described here"
   },
   {
     "objectID": "posts/blog-configuration/index.html",
@@ -39,6 +39,13 @@
     "href": "posts/blog-configuration/index.html#adding-custom-domain",
     "title": "Configuring the blog",
     "section": "Adding custom domain",
-    "text": "Adding custom domain\nI follow the guide Managing a custom domain for your GitHub Pages site"
+    "text": "Adding custom domain\nWe configure only the main .github.io repository with a custom domain in Github as explained in the guide Managing a custom domain for your GitHub Pages site\nThe guide states that you must only configure a CNAME in the DNS settings but it was necessary to add four A Record as explained in the configuring an apex domain section of the same page."
+  },
+  {
+    "objectID": "posts/eda-predictive-maintenance/index.html",
+    "href": "posts/eda-predictive-maintenance/index.html",
+    "title": "Predictive maintenance",
+    "section": "",
+    "text": "We will use the dataset available here"
   }
 ]

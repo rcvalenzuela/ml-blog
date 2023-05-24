@@ -2,7 +2,9 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/post-with-code/index.html",
+      "/posts/website-creation/index.html",
+      "/posts/connecting-to-synapse/index.html",
+      "/posts/eda-predictive-maintenance/index.html",
       "/posts/blog-configuration/index.html"
     ]
   }
