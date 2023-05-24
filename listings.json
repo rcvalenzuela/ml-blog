@@ -2,8 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/website-creation/index.html",
       "/posts/connecting-to-synapse/index.html",
+      "/posts/website-creation/index.html",
       "/posts/eda-predictive-maintenance/index.html",
       "/posts/blog-configuration/index.html"
     ]

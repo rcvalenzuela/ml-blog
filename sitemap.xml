@@ -2,22 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/index.html</loc>
-    <lastmod>2023-05-24T11:30:23.049Z</lastmod>
+    <lastmod>2023-05-24T16:53:49.820Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/about.html</loc>
-    <lastmod>2023-05-24T11:30:23.253Z</lastmod>
+    <lastmod>2023-05-24T16:53:50.056Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/posts/connecting-to-synapse/index.html</loc>
-    <lastmod>2023-05-24T11:30:25.373Z</lastmod>
+    <lastmod>2023-05-24T16:53:50.604Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/posts/blog-configuration/index.html</loc>
-    <lastmod>2023-05-24T11:30:25.585Z</lastmod>
+    <lastmod>2023-05-24T16:53:50.840Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcvalenzuela.github.io/ml-blog/posts/website-creation/index.html</loc>
+    <lastmod>2023-05-24T16:53:51.060Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/posts/eda-predictive-maintenance/index.html</loc>
-    <lastmod>2023-05-24T11:30:25.977Z</lastmod>
+    <lastmod>2023-05-24T16:53:51.280Z</lastmod>
   </url>
 </urlset>

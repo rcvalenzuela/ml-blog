@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Understanding Machine Learning",
     "section": "",
-    "text": "Querying Synapse from python\n\n\n\n\n\n\n\npython\n\n\nsynapse\n\n\n\n\n\n\n\n\n\n\n\nDec 5, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nPredictive maintenance\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMay 21, 2023\n\n\nRene Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nConfiguring the blog\n\n\n\n\n\n\n\nquarto\n\n\ngithub\n\n\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\nNo matching items"
+    "text": "Querying Synapse from python\n\n\n\n\n\n\n\npython\n\n\nsynapse\n\n\n\n\n\n\n\n\n\n\n\nDec 5, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nCreating the website\n\n\n\n\n\n\n\nhtml\n\n\ncss\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nExploratory data analysis of time series data\n\n\n\n\n\n\n\neda\n\n\ntime-series\n\n\n\n\n\n\n\n\n\n\n\nMay 21, 2023\n\n\nRene Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nConfiguring the blog\n\n\n\n\n\n\n\nquarto\n\n\ngithub\n\n\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -42,9 +42,23 @@
     "text": "Adding custom domain\nWe configure only the main .github.io repository with a custom domain in Github as explained in the guide Managing a custom domain for your GitHub Pages site\nThe guide states that you must only configure a CNAME in the DNS settings but it was necessary to add four A Record as explained in the configuring an apex domain section of the same page."
   },
   {
+    "objectID": "posts/website-creation/index.html",
+    "href": "posts/website-creation/index.html",
+    "title": "Creating the website",
+    "section": "",
+    "text": "I decided to use the Bootstrap 5 framework. As a reference I am using:\n\nBootstrap 5 tutorial\nGet started with Bootstrap"
+  },
+  {
+    "objectID": "posts/website-creation/index.html#landing-page",
+    "href": "posts/website-creation/index.html#landing-page",
+    "title": "Creating the website",
+    "section": "",
+    "text": "I decided to use the Bootstrap 5 framework. As a reference I am using:\n\nBootstrap 5 tutorial\nGet started with Bootstrap"
+  },
+  {
     "objectID": "posts/eda-predictive-maintenance/index.html",
     "href": "posts/eda-predictive-maintenance/index.html",
-    "title": "Predictive maintenance",
+    "title": "Exploratory data analysis of time series data",
     "section": "",
     "text": "We will use the dataset available here"
   }
