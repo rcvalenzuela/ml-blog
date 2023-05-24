@@ -1,0 +1,16 @@
+---
+title: "Creating the website"
+author: "René Valenzuela"
+date: "2023-05-24"
+date-modified: last-modified
+categories: [html, css]
+---
+
+## Landing page
+
+I decided to use the Bootstrap 5 framework. As a reference I am using:
+
+1. [Bootstrap 5 tutorial](https://www.w3schools.com/bootstrap5/index.php)
+2. [Get started with Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+
+### Custom fonts
