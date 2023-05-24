@@ -2,6 +2,7 @@
 title: "Configuring the blog"
 author: "René Valenzuela"
 date: "2023-05-18"
+date-modified: last-modified
 categories: [quarto, github]
 ---
 
