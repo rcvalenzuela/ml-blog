@@ -1,8 +1,8 @@
 ---
-title: "Predictive maintenance"
+title: "Exploratory data analysis of time series data"
 author: "Rene Valenzuela"
 date: "2023-05-21"
-categories: [news, code, analysis]
+categories: [eda, time-series]
 image: "image.jpg"
 ---
 
