@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Understanding Machine Learning",
     "section": "",
-    "text": "Querying Synapse from python\n\n\n\n\n\n\n\npython\n\n\nsynapse\n\n\n\n\n\n\n\n\n\n\n\nDec 5, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nCreating the website\n\n\n\n\n\n\n\nhtml\n\n\ncss\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nExploratory data analysis of time series data\n\n\n\n\n\n\n\neda\n\n\ntime-series\n\n\n\n\n\n\n\n\n\n\n\nMay 21, 2023\n\n\nRene Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nConfiguring the blog\n\n\n\n\n\n\n\nquarto\n\n\ngithub\n\n\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\nNo matching items"
+    "text": "Things to follow\n\n\n\n\n\n\n\nreferences\n\n\n\n\n\n\n\n\n\n\n\nJul 12, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nUnderstanding AUROC\n\n\n\n\n\n\n\nauroc\n\n\n\n\n\n\n\n\n\n\n\nMay 25, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nStoring tabular data\n\n\n\n\n\n\n\ncsv\n\n\nparquet\n\n\n\n\n\n\n\n\n\n\n\nMay 25, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nQuerying Synapse from python\n\n\n\n\n\n\n\npython\n\n\nsynapse\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nCreating the website\n\n\n\n\n\n\n\nhtml\n\n\ncss\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nExploratory data analysis of time series data\n\n\n\n\n\n\n\neda\n\n\nchecklist\n\n\n\n\n\n\n\n\n\n\n\nMay 21, 2023\n\n\nRene Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nExploratory data analysis of time series data\n\n\n\n\n\n\n\neda\n\n\ntime-series\n\n\n\n\n\n\n\n\n\n\n\nMay 21, 2023\n\n\nRene Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nConfiguring the blog\n\n\n\n\n\n\n\nquarto\n\n\ngithub\n\n\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -46,14 +46,70 @@
     "href": "posts/website-creation/index.html",
     "title": "Creating the website",
     "section": "",
-    "text": "I decided to use the Bootstrap 5 framework. As a reference I am using:\n\nBootstrap 5 tutorial\nGet started with Bootstrap"
+    "text": "This post outlines my thoughts on how to structure this webpage"
   },
   {
-    "objectID": "posts/website-creation/index.html#landing-page",
-    "href": "posts/website-creation/index.html#landing-page",
+    "objectID": "posts/website-creation/index.html#things-to-do",
+    "href": "posts/website-creation/index.html#things-to-do",
     "title": "Creating the website",
+    "section": "Things to do",
+    "text": "Things to do\n\nFinish the high level organization of the website (i.e. what goes where)\nUnderstand how to set up a unified look and feel"
+  },
+  {
+    "objectID": "posts/website-creation/index.html#organization",
+    "href": "posts/website-creation/index.html#organization",
+    "title": "Creating the website",
+    "section": "Organization",
+    "text": "Organization\n\nLanding page\nI decided to use the Bootstrap 5 framework. As a reference I am using:\n\nBootstrap 5 tutorial\nGet started with Bootstrap"
+  },
+  {
+    "objectID": "posts/website-creation/index.html#technical-stuff",
+    "href": "posts/website-creation/index.html#technical-stuff",
+    "title": "Creating the website",
+    "section": "Technical stuff",
+    "text": "Technical stuff\n\nSetting up github pages\n\n\nCustom fonts"
+  },
+  {
+    "objectID": "posts/interesting-follows/index.html",
+    "href": "posts/interesting-follows/index.html",
+    "title": "Things to follow",
     "section": "",
-    "text": "I decided to use the Bootstrap 5 framework. As a reference I am using:\n\nBootstrap 5 tutorial\nGet started with Bootstrap"
+    "text": "As I progress in the setup of the website this post will become a page on its own … in the meantime I will update the links here"
+  },
+  {
+    "objectID": "posts/interesting-follows/index.html#introduction",
+    "href": "posts/interesting-follows/index.html#introduction",
+    "title": "Things to follow",
+    "section": "",
+    "text": "As I progress in the setup of the website this post will become a page on its own … in the meantime I will update the links here"
+  },
+  {
+    "objectID": "posts/interesting-follows/index.html#people",
+    "href": "posts/interesting-follows/index.html#people",
+    "title": "Things to follow",
+    "section": "People",
+    "text": "People\n\nCosma Shalizi’s webpage and notebooks (last visited on July 12, 2023)."
+  },
+  {
+    "objectID": "posts/understanding-auroc/index.html",
+    "href": "posts/understanding-auroc/index.html",
+    "title": "Understanding AUROC",
+    "section": "",
+    "text": "Area under the ROC curve is a metric measuring the performance of a binary classifier. Its value can be interpreted as the probability that randomly chosen instance from the positive class will have a higher score than a randomly chosen instance of the negative class.\nThe question being studied in this post is: How is the previous statement derived and can we see examples of it?\n\nimport pandas as pd\nfrom sklearn.metrics import roc_auc_score\n\n\ndf_preds = pd.DataFrame({'y_true':[0, 0, 0, 0, 0, 1, 1, 1, 1, 1], \n                         'y_pred':[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}).reset_index()\n\n\nroc_auc_score(df_preds['y_true'], df_preds['y_pred'])\n\n1.0"
+  },
+  {
+    "objectID": "posts/understanding-auroc/index.html#introduction",
+    "href": "posts/understanding-auroc/index.html#introduction",
+    "title": "Understanding AUROC",
+    "section": "",
+    "text": "Area under the ROC curve is a metric measuring the performance of a binary classifier. Its value can be interpreted as the probability that randomly chosen instance from the positive class will have a higher score than a randomly chosen instance of the negative class.\nThe question being studied in this post is: How is the previous statement derived and can we see examples of it?\n\nimport pandas as pd\nfrom sklearn.metrics import roc_auc_score\n\n\ndf_preds = pd.DataFrame({'y_true':[0, 0, 0, 0, 0, 1, 1, 1, 1, 1], \n                         'y_pred':[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}).reset_index()\n\n\nroc_auc_score(df_preds['y_true'], df_preds['y_pred'])\n\n1.0"
+  },
+  {
+    "objectID": "posts/eda-checklist/index.html",
+    "href": "posts/eda-checklist/index.html",
+    "title": "Exploratory data analysis of time series data",
+    "section": "",
+    "text": "Write and check assumptions about your data"
   },
   {
     "objectID": "posts/eda-predictive-maintenance/index.html",
@@ -61,5 +117,19 @@
     "title": "Exploratory data analysis of time series data",
     "section": "",
     "text": "We will use the dataset available here"
+  },
+  {
+    "objectID": "posts/eda-predictive-maintenance/index.html#load-the-dataset",
+    "href": "posts/eda-predictive-maintenance/index.html#load-the-dataset",
+    "title": "Exploratory data analysis of time series data",
+    "section": "Load the dataset",
+    "text": "Load the dataset\n\nimport pandas as pd\nimport yaml\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom ydata_profiling import ProfileReport\n\n/home/renevalenzuela/anaconda3/envs/aatools/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html\n  from .autonotebook import tqdm as notebook_tqdm\n\n\n\nwith open(\"predictive_maintenance.yaml\", \"r\") as stream:\n    try:\n        df_meta = yaml.safe_load(stream)\n    except yaml.YAMLError as exc:\n        print(exc)\n\n\ndf = pd.read_parquet('./data/ai4i2020.parquet')"
+  },
+  {
+    "objectID": "posts/eda-predictive-maintenance/index.html#rotational-speed",
+    "href": "posts/eda-predictive-maintenance/index.html#rotational-speed",
+    "title": "Exploratory data analysis of time series data",
+    "section": "Rotational speed",
+    "text": "Rotational speed\n\nimport matplotlib.font_manager as font_manager\n\n# Add every font at the specified location\nfont_dir = ['./assets/Roboto_Condensed']\nfor font in font_manager.findSystemFonts(font_dir):\n    font_manager.fontManager.addfont(font)\n\n\n# Set font family globally\nfrom matplotlib import rcParams\nrcParams['axes.spines.top'] = False\nrcParams['axes.spines.right'] = False\nrcParams['font.family'] = 'Roboto Condensed Light'\n\n\n# Create the figure\nfig, ax = plt.subplots(1, 1, figsize=(8, 4))\nsns.histplot(data=df, x=\"rot_speed\", bins=40, ax=ax)\nax.set_xlabel(df_meta['features']['rot_speed']['name'])\nfig.tight_layout()\n\n\n\n\n\nprofile = ProfileReport(df, title=\"Profiling Report\")\n\n\nprofile.to_file(\"eda_profile_report.html\")\n\nSummarize dataset:   0%|          | 0/5 [00:00&lt;?, ?it/s]Summarize dataset:   0%|          | 0/17 [00:00&lt;?, ?it/s, Describe variable:Air temperature [K]]Summarize dataset:   6%|▌         | 1/17 [00:00&lt;00:02,  6.24it/s, Describe variable:Air temperature [K]]Summarize dataset:   6%|▌         | 1/17 [00:00&lt;00:02,  6.24it/s, Describe variable:Torque [Nm]]        Summarize dataset:  12%|█▏        | 2/17 [00:00&lt;00:02,  6.24it/s, Describe variable:Process temperature [K]]Summarize dataset:  18%|█▊        | 3/17 [00:00&lt;00:02,  6.24it/s, Describe variable:rot_speed]              Summarize dataset:  24%|██▎       | 4/17 [00:00&lt;00:02,  6.24it/s, Describe variable:Tool wear [min]]Summarize dataset:  29%|██▉       | 5/17 [00:00&lt;00:01,  6.24it/s, Describe variable:machine_failure]Summarize dataset:  35%|███▌      | 6/17 [00:00&lt;00:01,  8.08it/s, Describe variable:machine_failure]Summarize dataset:  35%|███▌      | 6/17 [00:00&lt;00:01,  8.08it/s, Describe variable:type]           Summarize dataset:  41%|████      | 7/17 [00:00&lt;00:01,  8.08it/s, Describe variable:HDF] Summarize dataset:  47%|████▋     | 8/17 [00:00&lt;00:01,  8.08it/s, Describe variable:OSF]Summarize dataset:  53%|█████▎    | 9/17 [00:00&lt;00:00,  8.08it/s, Describe variable:PWF]Summarize dataset:  59%|█████▉    | 10/17 [00:00&lt;00:00,  8.08it/s, Describe variable:TWF]Summarize dataset:  65%|██████▍   | 11/17 [00:00&lt;00:00,  8.08it/s, Describe variable:RNF]Summarize dataset:  71%|███████   | 12/17 [00:00&lt;00:00,  8.08it/s, Get variable types]   Summarize dataset:  72%|███████▏  | 13/18 [00:00&lt;00:00,  8.08it/s, Get dataframe statistics]Summarize dataset:  74%|███████▎  | 14/19 [00:00&lt;00:00,  8.08it/s, Calculate auto correlation]Summarize dataset:  79%|███████▉  | 15/19 [00:01&lt;00:00, 15.58it/s, Calculate auto correlation]Summarize dataset:  79%|███████▉  | 15/19 [00:01&lt;00:00, 15.58it/s, Get scatter matrix]        Summarize dataset:  34%|███▍      | 15/44 [00:01&lt;00:01, 15.58it/s, scatter Air temperature [K], Air temperature [K]]Summarize dataset:  36%|███▋      | 16/44 [00:01&lt;00:01, 15.58it/s, scatter Process temperature [K], Air temperature [K]]Summarize dataset:  39%|███▊      | 17/44 [00:01&lt;00:01, 13.76it/s, scatter Process temperature [K], Air temperature [K]]Summarize dataset:  39%|███▊      | 17/44 [00:01&lt;00:01, 13.76it/s, scatter rot_speed, Air temperature [K]]              Summarize dataset:  41%|████      | 18/44 [00:01&lt;00:01, 13.76it/s, scatter Torque [Nm], Air temperature [K]]Summarize dataset:  43%|████▎     | 19/44 [00:01&lt;00:02, 11.63it/s, scatter Torque [Nm], Air temperature [K]]Summarize dataset:  43%|████▎     | 19/44 [00:01&lt;00:02, 11.63it/s, scatter Tool wear [min], Air temperature [K]]Summarize dataset:  45%|████▌     | 20/44 [00:01&lt;00:02, 11.63it/s, scatter Air temperature [K], Process temperature [K]]Summarize dataset:  48%|████▊     | 21/44 [00:01&lt;00:02, 11.31it/s, scatter Air temperature [K], Process temperature [K]]Summarize dataset:  48%|████▊     | 21/44 [00:01&lt;00:02, 11.31it/s, scatter Process temperature [K], Process temperature [K]]Summarize dataset:  50%|█████     | 22/44 [00:01&lt;00:01, 11.31it/s, scatter rot_speed, Process temperature [K]]              Summarize dataset:  52%|█████▏    | 23/44 [00:02&lt;00:01, 10.66it/s, scatter rot_speed, Process temperature [K]]Summarize dataset:  52%|█████▏    | 23/44 [00:02&lt;00:01, 10.66it/s, scatter Torque [Nm], Process temperature [K]]Summarize dataset:  55%|█████▍    | 24/44 [00:02&lt;00:01, 10.66it/s, scatter Tool wear [min], Process temperature [K]]Summarize dataset:  57%|█████▋    | 25/44 [00:02&lt;00:01, 10.27it/s, scatter Tool wear [min], Process temperature [K]]Summarize dataset:  57%|█████▋    | 25/44 [00:02&lt;00:01, 10.27it/s, scatter Air temperature [K], rot_speed]          Summarize dataset:  59%|█████▉    | 26/44 [00:02&lt;00:01, 10.27it/s, scatter Process temperature [K], rot_speed]Summarize dataset:  61%|██████▏   | 27/44 [00:02&lt;00:01, 10.07it/s, scatter Process temperature [K], rot_speed]Summarize dataset:  61%|██████▏   | 27/44 [00:02&lt;00:01, 10.07it/s, scatter rot_speed, rot_speed]              Summarize dataset:  64%|██████▎   | 28/44 [00:02&lt;00:01, 10.02it/s, scatter rot_speed, rot_speed]Summarize dataset:  64%|██████▎   | 28/44 [00:02&lt;00:01, 10.02it/s, scatter Torque [Nm], rot_speed]Summarize dataset:  66%|██████▌   | 29/44 [00:02&lt;00:01,  9.88it/s, scatter Torque [Nm], rot_speed]Summarize dataset:  66%|██████▌   | 29/44 [00:02&lt;00:01,  9.88it/s, scatter Tool wear [min], rot_speed]Summarize dataset:  68%|██████▊   | 30/44 [00:02&lt;00:01,  9.90it/s, scatter Tool wear [min], rot_speed]Summarize dataset:  68%|██████▊   | 30/44 [00:02&lt;00:01,  9.90it/s, scatter Air temperature [K], Torque [Nm]]Summarize dataset:  70%|███████   | 31/44 [00:02&lt;00:01,  9.90it/s, scatter Process temperature [K], Torque [Nm]]Summarize dataset:  73%|███████▎  | 32/44 [00:02&lt;00:01,  9.76it/s, scatter Process temperature [K], Torque [Nm]]Summarize dataset:  73%|███████▎  | 32/44 [00:02&lt;00:01,  9.76it/s, scatter rot_speed, Torque [Nm]]              Summarize dataset:  75%|███████▌  | 33/44 [00:03&lt;00:01,  9.74it/s, scatter rot_speed, Torque [Nm]]Summarize dataset:  75%|███████▌  | 33/44 [00:03&lt;00:01,  9.74it/s, scatter Torque [Nm], Torque [Nm]]Summarize dataset:  77%|███████▋  | 34/44 [00:03&lt;00:01,  9.66it/s, scatter Torque [Nm], Torque [Nm]]Summarize dataset:  77%|███████▋  | 34/44 [00:03&lt;00:01,  9.66it/s, scatter Tool wear [min], Torque [Nm]]Summarize dataset:  80%|███████▉  | 35/44 [00:03&lt;00:00,  9.71it/s, scatter Tool wear [min], Torque [Nm]]Summarize dataset:  80%|███████▉  | 35/44 [00:03&lt;00:00,  9.71it/s, scatter Air temperature [K], Tool wear [min]]Summarize dataset:  82%|████████▏ | 36/44 [00:03&lt;00:00,  9.71it/s, scatter Process temperature [K], Tool wear [min]]Summarize dataset:  84%|████████▍ | 37/44 [00:03&lt;00:00,  9.76it/s, scatter Process temperature [K], Tool wear [min]]Summarize dataset:  84%|████████▍ | 37/44 [00:03&lt;00:00,  9.76it/s, scatter rot_speed, Tool wear [min]]              Summarize dataset:  86%|████████▋ | 38/44 [00:03&lt;00:00,  9.79it/s, scatter rot_speed, Tool wear [min]]Summarize dataset:  86%|████████▋ | 38/44 [00:03&lt;00:00,  9.79it/s, scatter Torque [Nm], Tool wear [min]]Summarize dataset:  89%|████████▊ | 39/44 [00:03&lt;00:00,  9.74it/s, scatter Torque [Nm], Tool wear [min]]Summarize dataset:  89%|████████▊ | 39/44 [00:03&lt;00:00,  9.74it/s, scatter Tool wear [min], Tool wear [min]]Summarize dataset:  87%|████████▋ | 40/46 [00:03&lt;00:00,  9.74it/s, Missing diagram bar]                     Summarize dataset:  89%|████████▉ | 41/46 [00:03&lt;00:00,  8.00it/s, Missing diagram bar]Summarize dataset:  89%|████████▉ | 41/46 [00:03&lt;00:00,  8.00it/s, Missing diagram matrix]Summarize dataset:  91%|█████████▏| 42/46 [00:04&lt;00:00,  8.33it/s, Missing diagram matrix]Summarize dataset:  91%|█████████▏| 42/46 [00:04&lt;00:00,  8.33it/s, Take sample]           Summarize dataset:  93%|█████████▎| 43/46 [00:04&lt;00:00,  8.33it/s, Detecting duplicates]Summarize dataset:  96%|█████████▌| 44/46 [00:04&lt;00:00,  8.33it/s, Get alerts]          Summarize dataset:  98%|█████████▊| 45/46 [00:04&lt;00:00,  8.33it/s, Get reproduction details]Summarize dataset: 100%|██████████| 46/46 [00:04&lt;00:00,  8.33it/s, Completed]               Summarize dataset: 100%|██████████| 46/46 [00:04&lt;00:00, 11.22it/s, Completed]\nGenerate report structure:   0%|          | 0/1 [00:00&lt;?, ?it/s]Generate report structure: 100%|██████████| 1/1 [00:02&lt;00:00,  2.79s/it]Generate report structure: 100%|██████████| 1/1 [00:02&lt;00:00,  2.79s/it]\nRender HTML:   0%|          | 0/1 [00:00&lt;?, ?it/s]Render HTML: 100%|██████████| 1/1 [00:00&lt;00:00,  1.24it/s]Render HTML: 100%|██████████| 1/1 [00:00&lt;00:00,  1.24it/s]\nExport report to file:   0%|          | 0/1 [00:00&lt;?, ?it/s]Export report to file: 100%|██████████| 1/1 [00:00&lt;00:00, 635.12it/s]"
   }
 ]

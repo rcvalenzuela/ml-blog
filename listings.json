@@ -2,8 +2,12 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/interesting-follows/index.html",
+      "/posts/understanding-auroc/index.html",
+      "/posts/storing-tabular-data/index.html",
       "/posts/connecting-to-synapse/index.html",
       "/posts/website-creation/index.html",
+      "/posts/eda-checklist/index.html",
       "/posts/eda-predictive-maintenance/index.html",
       "/posts/blog-configuration/index.html"
     ]

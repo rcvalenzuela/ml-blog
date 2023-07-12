@@ -2,26 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/index.html</loc>
-    <lastmod>2023-05-24T16:53:49.820Z</lastmod>
+    <lastmod>2023-07-12T10:31:21.963Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/about.html</loc>
-    <lastmod>2023-05-24T16:53:50.056Z</lastmod>
+    <lastmod>2023-07-12T10:31:22.167Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/posts/connecting-to-synapse/index.html</loc>
-    <lastmod>2023-05-24T16:53:50.604Z</lastmod>
+    <lastmod>2023-07-12T10:31:22.491Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/posts/blog-configuration/index.html</loc>
-    <lastmod>2023-05-24T16:53:50.840Z</lastmod>
+    <lastmod>2023-07-12T10:31:22.711Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/posts/website-creation/index.html</loc>
-    <lastmod>2023-05-24T16:53:51.060Z</lastmod>
+    <lastmod>2023-07-12T10:31:22.927Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcvalenzuela.github.io/ml-blog/posts/interesting-follows/index.html</loc>
+    <lastmod>2023-07-12T10:31:23.135Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcvalenzuela.github.io/ml-blog/posts/understanding-auroc/index.html</loc>
+    <lastmod>2023-07-12T10:31:26.351Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcvalenzuela.github.io/ml-blog/posts/eda-checklist/index.html</loc>
+    <lastmod>2023-07-12T10:31:26.543Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/posts/eda-predictive-maintenance/index.html</loc>
-    <lastmod>2023-05-24T16:53:51.280Z</lastmod>
+    <lastmod>2023-07-12T10:31:37.899Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcvalenzuela.github.io/ml-blog/posts/storing-tabular-data/index.html</loc>
+    <lastmod>2023-07-12T10:31:38.111Z</lastmod>
   </url>
 </urlset>
