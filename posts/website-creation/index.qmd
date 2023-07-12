@@ -8,6 +8,11 @@ categories: [html, css]
 
 This post outlines my thoughts on how to structure this webpage
 
+## Things to do
+
+1. Finish the high level organization of the website (i.e. what goes where)
+2. Understand how to set up a unified look and feel
+
 ## Organization
 
 ### Landing page
@@ -18,6 +23,8 @@ I decided to use the Bootstrap 5 framework. As a reference I am using:
 2. [Get started with Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
 ## Technical stuff
+
+### Setting up github pages
 
 ### Custom fonts
 
