@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Understanding Machine Learning",
     "section": "",
-    "text": "Things to follow\n\n\n\n\n\n\n\nreferences\n\n\n\n\n\n\n\n\n\n\n\nJul 12, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nUnderstanding AUROC\n\n\n\n\n\n\n\nauroc\n\n\n\n\n\n\n\n\n\n\n\nMay 25, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nStoring tabular data\n\n\n\n\n\n\n\ncsv\n\n\nparquet\n\n\n\n\n\n\n\n\n\n\n\nMay 25, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nQuerying Synapse from python\n\n\n\n\n\n\n\npython\n\n\nsynapse\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nCreating the website\n\n\n\n\n\n\n\nhtml\n\n\ncss\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nExploratory data analysis of time series data\n\n\n\n\n\n\n\neda\n\n\nchecklist\n\n\n\n\n\n\n\n\n\n\n\nMay 21, 2023\n\n\nRene Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nExploratory data analysis of time series data\n\n\n\n\n\n\n\neda\n\n\ntime-series\n\n\n\n\n\n\n\n\n\n\n\nMay 21, 2023\n\n\nRene Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nConfiguring the blog\n\n\n\n\n\n\n\nquarto\n\n\ngithub\n\n\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\nNo matching items"
+    "text": "Modeling the outcome of soccer games\n\n\n\n\n\n\n\npredictive-modeling\n\n\n\n\n\n\n\n\n\n\n\nJul 18, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nTips about building quarto documents\n\n\n\n\n\n\n\nquarto\n\n\nlatex\n\n\n\n\n\n\n\n\n\n\n\nJul 13, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nThings to follow\n\n\n\n\n\n\n\nreferences\n\n\n\n\n\n\n\n\n\n\n\nJul 12, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nUnderstanding AUROC\n\n\n\n\n\n\n\nauroc\n\n\n\n\n\n\n\n\n\n\n\nMay 25, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nStoring tabular data\n\n\n\n\n\n\n\ncsv\n\n\nparquet\n\n\n\n\n\n\n\n\n\n\n\nMay 25, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nQuerying Synapse from python\n\n\n\n\n\n\n\npython\n\n\nsynapse\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nCreating the website\n\n\n\n\n\n\n\nhtml\n\n\ncss\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nExploratory data analysis of time series data\n\n\n\n\n\n\n\neda\n\n\nchecklist\n\n\n\n\n\n\n\n\n\n\n\nMay 21, 2023\n\n\nRene Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nExploratory data analysis of time series data\n\n\n\n\n\n\n\neda\n\n\ntime-series\n\n\n\n\n\n\n\n\n\n\n\nMay 21, 2023\n\n\nRene Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nConfiguring the blog\n\n\n\n\n\n\n\nquarto\n\n\ngithub\n\n\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -12,6 +12,27 @@
     "title": "About",
     "section": "",
     "text": "About this blog"
+  },
+  {
+    "objectID": "posts/quarto-tips/index.html",
+    "href": "posts/quarto-tips/index.html",
+    "title": "Tips about building quarto documents",
+    "section": "",
+    "text": "ln [original filename] [link name]"
+  },
+  {
+    "objectID": "posts/quarto-tips/index.html#global-config-files",
+    "href": "posts/quarto-tips/index.html#global-config-files",
+    "title": "Tips about building quarto documents",
+    "section": "",
+    "text": "ln [original filename] [link name]"
+  },
+  {
+    "objectID": "posts/quarto-tips/index.html#comments",
+    "href": "posts/quarto-tips/index.html#comments",
+    "title": "Tips about building quarto documents",
+    "section": "Comments",
+    "text": "Comments\nInside a latex enumerate environment the comments must be made in the latex format, i.e., using the % sign. In general, outside latex environments html comments should be used"
   },
   {
     "objectID": "posts/connecting-to-synapse/index.html",
@@ -40,6 +61,34 @@
     "title": "Configuring the blog",
     "section": "Adding custom domain",
     "text": "Adding custom domain\nWe configure only the main .github.io repository with a custom domain in Github as explained in the guide Managing a custom domain for your GitHub Pages site\nThe guide states that you must only configure a CNAME in the DNS settings but it was necessary to add four A Record as explained in the configuring an apex domain section of the same page."
+  },
+  {
+    "objectID": "posts/soccer-games-outcomes/index.html",
+    "href": "posts/soccer-games-outcomes/index.html",
+    "title": "Modeling the outcome of soccer games",
+    "section": "",
+    "text": "Our goal is to create a model to predict the outcome of La Liga games"
+  },
+  {
+    "objectID": "posts/soccer-games-outcomes/index.html#high-level-approach",
+    "href": "posts/soccer-games-outcomes/index.html#high-level-approach",
+    "title": "Modeling the outcome of soccer games",
+    "section": "High level approach",
+    "text": "High level approach\n\nWe let the two teams participating in a game be Team A and Team B.\nWe let the outcome of the game be W if the predicted result is that Team A wins, T if the game is predicted to end in a tie and L if Team A is predicted to lose the game.\nFor each team we model the number of goals scored in a game as a Poisson distribution and we fit one based on historical data.\nWe assume the number of goals scored by a team in a game is independent of the number of goals scored by the adversary and create a joint probability funcion as the product of the marginals\nWe evaluate the joint distribution on a grid of possible scores\nWe assign the game outcome as the one corresponding to the maximum probability of the game final score. That is, if the final score with highest probability is Tema A: 3 and Team B: 2 then the outcome of the game will be W"
+  },
+  {
+    "objectID": "posts/soccer-games-outcomes/index.html#hashing-out-the-details",
+    "href": "posts/soccer-games-outcomes/index.html#hashing-out-the-details",
+    "title": "Modeling the outcome of soccer games",
+    "section": "Hashing out the details",
+    "text": "Hashing out the details\n\nFitting the Poisson model\nThe probability mass function of a Poisson distributed random variable \\(X\\) is: \\[\n\\begin{equation*}\np_{X}(k) = \\mathbb{P}\\text{r}\\left(X = k\\right) = e^{-\\lambda}\\frac{\\lambda^{k}}{k!}\n\\end{equation*}\n\\]\nGiven a sample of \\(n\\) realizations of the random variable the MLE of \\(\\lambda\\) is simply the sample mean, i.e., \\[\n\\tilde{\\lambda}_{MLE} = \\frac{1}{n}\\sum_{i=1}^{n} x_{i}\n\\]\nSo, in order to fit the Poisson r.v. we must define a sample from which the \\(\\lambda\\) parameter will be estimated. The simplest possible approach is to use as a sample the results of the last \\(N\\) games where \\(N\\) is a fixed number. As a starting point we will choose \\(N = 10\\). Since some teams play more than one La Liga game a week 10 games roughky corresponds to a 2 month historic period."
+  },
+  {
+    "objectID": "posts/soccer-games-outcomes/index.html#dataset",
+    "href": "posts/soccer-games-outcomes/index.html#dataset",
+    "title": "Modeling the outcome of soccer games",
+    "section": "Dataset",
+    "text": "Dataset"
   },
   {
     "objectID": "posts/website-creation/index.html",

@@ -2,42 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/index.html</loc>
-    <lastmod>2023-07-12T10:31:21.963Z</lastmod>
+    <lastmod>2023-07-19T11:04:28.372Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/about.html</loc>
-    <lastmod>2023-07-12T10:31:22.167Z</lastmod>
+    <lastmod>2023-07-19T11:04:28.548Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcvalenzuela.github.io/ml-blog/posts/quarto-tips/index.html</loc>
+    <lastmod>2023-07-19T11:04:28.752Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/posts/connecting-to-synapse/index.html</loc>
-    <lastmod>2023-07-12T10:31:22.491Z</lastmod>
+    <lastmod>2023-07-19T11:04:29.236Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/posts/blog-configuration/index.html</loc>
-    <lastmod>2023-07-12T10:31:22.711Z</lastmod>
+    <lastmod>2023-07-19T11:04:29.448Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcvalenzuela.github.io/ml-blog/posts/soccer-games-outcomes/index.html</loc>
+    <lastmod>2023-07-19T11:04:29.680Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/posts/website-creation/index.html</loc>
-    <lastmod>2023-07-12T10:31:22.927Z</lastmod>
+    <lastmod>2023-07-19T11:04:29.872Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/posts/interesting-follows/index.html</loc>
-    <lastmod>2023-07-12T10:31:23.135Z</lastmod>
+    <lastmod>2023-07-19T11:04:30.048Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/posts/understanding-auroc/index.html</loc>
-    <lastmod>2023-07-12T10:31:26.351Z</lastmod>
+    <lastmod>2023-07-19T11:04:30.376Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/posts/eda-checklist/index.html</loc>
-    <lastmod>2023-07-12T10:31:26.543Z</lastmod>
+    <lastmod>2023-07-19T11:04:30.568Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/posts/eda-predictive-maintenance/index.html</loc>
-    <lastmod>2023-07-12T10:31:37.899Z</lastmod>
+    <lastmod>2023-07-19T11:04:30.916Z</lastmod>
   </url>
   <url>
     <loc>https://rcvalenzuela.github.io/ml-blog/posts/storing-tabular-data/index.html</loc>
-    <lastmod>2023-07-12T10:31:38.111Z</lastmod>
+    <lastmod>2023-07-19T11:04:31.112Z</lastmod>
   </url>
 </urlset>

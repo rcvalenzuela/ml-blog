@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/soccer-games-outcomes/index.html",
+      "/posts/quarto-tips/index.html",
       "/posts/interesting-follows/index.html",
       "/posts/understanding-auroc/index.html",
       "/posts/storing-tabular-data/index.html",
