@@ -1,0 +1,41 @@
+---
+title: "Modeling the outcome of soccer games"
+author: "René Valenzuela"
+date: "2023-07-18"
+date-modified: last-modified
+categories: [predictive-modeling]
+
+# Introduction
+
+Our goal is to create a model to predict the outcome of La Liga games
+
+# First strategy: Independent Poisson models
+
+## High level approach
+
+- We let the two teams participating in a game be **Team A** and **Team B**.
+- We let the outcome of the game be **W** if the predicted result is that Team A wins, **T** if the game is predicted to end in a tie and **L** if Team A is predicted to lose the game.
+- For each team we model the number of goals scored in a game as a Poisson distribution and we fit one based on historical data. 
+- We assume the number of goals scored by a team in a game is independent of the number of goals scored by the adversary and create a joint probability funcion as the product of the marginals
+- We evaluate the joint distribution on a grid of possible scores
+- We assign the game outcome as the one corresponding to the maximum probability of the game final score. That is, if the final score with highest probability is Tema A: 3 and Team B: 2 then the outcome of the game will be **W**
+
+## Hashing out the details
+
+### Fitting the Poisson model
+
+The probability mass function of a Poisson distributed random variable $X$ is:
+$$
+\begin{equation*}
+p_{X}(k) = \mathbb{P}\text{r}\left(X = k\right) = e^{-\lambda}\frac{\lambda^{k}}{k!}
+\end{equation*}
+$$
+
+Given a sample of $n$ realizations of the random variable the MLE of $\lambda$ is simply the sample mean, i.e.,
+$$
+\tilde{\lambda}_{MLE} = \frac{1}{n}\sum_{i=1}^{n} x_{i}
+$$
+
+So, in order to fit the Poisson r.v. we must define a sample from which the $\lambda$ parameter will be estimated. The simplest possible approach is to use as a sample the results of the last $N$ games where $N$ is a fixed number. As a starting point we will choose $N = 10$. Since some teams play more than one La Liga game a week 10 games roughky corresponds to a 2 month historic period.
+
+## Dataset
