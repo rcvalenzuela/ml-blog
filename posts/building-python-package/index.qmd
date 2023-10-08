@@ -29,6 +29,29 @@ I use conda as a package manager. I install the package using `pip` in a conda e
 
 ## How should versioning be handled?
 
+One possibility is to use python semantic release tool. This requires that commits are in the Angular commit style.
+
 ## Which git workflow should we use when developing?
 
+A complete example demonstrating a Feature Branch Flow is as follows. Assuming we have a repo setup with a main branch [source](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+
+### Examples
+
+```
+git checkout main
+git checkout -b develop
+git checkout -b feature_branch
+# work happens on feature branch
+git checkout develop
+git merge feature_branch
+git checkout main
+git merge develop
+git branch -d feature_branch
+```
+
 ## What are the steps for creating a release?
+
+
+
+# Nbdev
+
