@@ -1,96 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Understanding Machine Learning",
-    "section": "",
-    "text": "Modeling the outcome of soccer games\n\n\n\n\n\n\n\npredictive-modeling\n\n\n\n\n\n\n\n\n\n\n\nJul 18, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nTips about building quarto documents\n\n\n\n\n\n\n\nquarto\n\n\nlatex\n\n\n\n\n\n\n\n\n\n\n\nJul 13, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nThings to follow\n\n\n\n\n\n\n\nreferences\n\n\n\n\n\n\n\n\n\n\n\nJul 12, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nUnderstanding AUROC\n\n\n\n\n\n\n\nauroc\n\n\n\n\n\n\n\n\n\n\n\nMay 25, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nStoring tabular data\n\n\n\n\n\n\n\ncsv\n\n\nparquet\n\n\n\n\n\n\n\n\n\n\n\nMay 25, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nQuerying Synapse from python\n\n\n\n\n\n\n\npython\n\n\nsynapse\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nCreating the website\n\n\n\n\n\n\n\nhtml\n\n\ncss\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nExploratory data analysis of time series data\n\n\n\n\n\n\n\neda\n\n\nchecklist\n\n\n\n\n\n\n\n\n\n\n\nMay 21, 2023\n\n\nRene Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nExploratory data analysis of time series data\n\n\n\n\n\n\n\neda\n\n\ntime-series\n\n\n\n\n\n\n\n\n\n\n\nMay 21, 2023\n\n\nRene Valenzuela\n\n\n\n\n\n\n  \n\n\n\n\nConfiguring the blog\n\n\n\n\n\n\n\nquarto\n\n\ngithub\n\n\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this blog"
-  },
-  {
-    "objectID": "posts/quarto-tips/index.html",
-    "href": "posts/quarto-tips/index.html",
-    "title": "Tips about building quarto documents",
-    "section": "",
-    "text": "ln [original filename] [link name]"
-  },
-  {
-    "objectID": "posts/quarto-tips/index.html#global-config-files",
-    "href": "posts/quarto-tips/index.html#global-config-files",
-    "title": "Tips about building quarto documents",
-    "section": "",
-    "text": "ln [original filename] [link name]"
-  },
-  {
-    "objectID": "posts/quarto-tips/index.html#comments",
-    "href": "posts/quarto-tips/index.html#comments",
-    "title": "Tips about building quarto documents",
-    "section": "Comments",
-    "text": "Comments\nInside a latex enumerate environment the comments must be made in the latex format, i.e., using the % sign. In general, outside latex environments html comments should be used"
-  },
-  {
-    "objectID": "posts/connecting-to-synapse/index.html",
-    "href": "posts/connecting-to-synapse/index.html",
-    "title": "Querying Synapse from python",
-    "section": "",
-    "text": "The radius of the circle is 10.\n\n\nIn this post I outline the steps needed to connect to a Synapse database from python\nI will be following the steps described here"
-  },
-  {
-    "objectID": "posts/blog-configuration/index.html",
-    "href": "posts/blog-configuration/index.html",
-    "title": "Configuring the blog",
-    "section": "",
-    "text": "On this post I keep a record of all the steps needed to configure/publish the blog"
-  },
-  {
-    "objectID": "posts/blog-configuration/index.html#publishing-to-github-pages",
-    "href": "posts/blog-configuration/index.html#publishing-to-github-pages",
-    "title": "Configuring the blog",
-    "section": "Publishing to github-pages",
-    "text": "Publishing to github-pages\nI follow the steps described in the Publish command section of the Github pages part of the quarto documentation.\nIn order to use quarto publish from the command line I create a Personal Access token using the instructions here"
-  },
-  {
-    "objectID": "posts/blog-configuration/index.html#adding-custom-domain",
-    "href": "posts/blog-configuration/index.html#adding-custom-domain",
-    "title": "Configuring the blog",
-    "section": "Adding custom domain",
-    "text": "Adding custom domain\nWe configure only the main .github.io repository with a custom domain in Github as explained in the guide Managing a custom domain for your GitHub Pages site\nThe guide states that you must only configure a CNAME in the DNS settings but it was necessary to add four A Record as explained in the configuring an apex domain section of the same page."
-  },
-  {
-    "objectID": "posts/soccer-games-outcomes/index.html",
-    "href": "posts/soccer-games-outcomes/index.html",
-    "title": "Modeling the outcome of soccer games",
-    "section": "",
-    "text": "Our goal is to create a model to predict the outcome of La Liga games"
-  },
-  {
-    "objectID": "posts/soccer-games-outcomes/index.html#high-level-approach",
-    "href": "posts/soccer-games-outcomes/index.html#high-level-approach",
-    "title": "Modeling the outcome of soccer games",
-    "section": "High level approach",
-    "text": "High level approach\n\nWe let the two teams participating in a game be Team A and Team B.\nWe let the outcome of the game be W if the predicted result is that Team A wins, T if the game is predicted to end in a tie and L if Team A is predicted to lose the game.\nFor each team we model the number of goals scored in a game as a Poisson distribution and we fit one based on historical data.\nWe assume the number of goals scored by a team in a game is independent of the number of goals scored by the adversary and create a joint probability funcion as the product of the marginals\nWe evaluate the joint distribution on a grid of possible scores\nWe assign the game outcome as the one corresponding to the maximum probability of the game final score. That is, if the final score with highest probability is Tema A: 3 and Team B: 2 then the outcome of the game will be W"
-  },
-  {
-    "objectID": "posts/soccer-games-outcomes/index.html#hashing-out-the-details",
-    "href": "posts/soccer-games-outcomes/index.html#hashing-out-the-details",
-    "title": "Modeling the outcome of soccer games",
-    "section": "Hashing out the details",
-    "text": "Hashing out the details\n\nFitting the Poisson model\nThe probability mass function of a Poisson distributed random variable \\(X\\) is: \\[\n\\begin{equation*}\np_{X}(k) = \\mathbb{P}\\text{r}\\left(X = k\\right) = e^{-\\lambda}\\frac{\\lambda^{k}}{k!}\n\\end{equation*}\n\\]\nGiven a sample of \\(n\\) realizations of the random variable the MLE of \\(\\lambda\\) is simply the sample mean, i.e., \\[\n\\tilde{\\lambda}_{MLE} = \\frac{1}{n}\\sum_{i=1}^{n} x_{i}\n\\]\nSo, in order to fit the Poisson r.v. we must define a sample from which the \\(\\lambda\\) parameter will be estimated. The simplest possible approach is to use as a sample the results of the last \\(N\\) games where \\(N\\) is a fixed number. As a starting point we will choose \\(N = 10\\). Since some teams play more than one La Liga game a week 10 games roughky corresponds to a 2 month historic period."
-  },
-  {
-    "objectID": "posts/soccer-games-outcomes/index.html#dataset",
-    "href": "posts/soccer-games-outcomes/index.html#dataset",
-    "title": "Modeling the outcome of soccer games",
-    "section": "Dataset",
-    "text": "Dataset"
-  },
-  {
     "objectID": "posts/website-creation/index.html",
     "href": "posts/website-creation/index.html",
     "title": "Creating the website",
@@ -119,6 +28,62 @@
     "text": "Technical stuff\n\nSetting up github pages\n\n\nCustom fonts"
   },
   {
+    "objectID": "posts/blog-configuration/index.html",
+    "href": "posts/blog-configuration/index.html",
+    "title": "Configuring the blog",
+    "section": "",
+    "text": "On this post I keep a record of all the steps needed to configure/publish the blog"
+  },
+  {
+    "objectID": "posts/blog-configuration/index.html#publishing-to-github-pages",
+    "href": "posts/blog-configuration/index.html#publishing-to-github-pages",
+    "title": "Configuring the blog",
+    "section": "Publishing to github-pages",
+    "text": "Publishing to github-pages\nI follow the steps described in the Publish command section of the Github pages part of the quarto documentation.\nIn order to use quarto publish from the command line I create a Personal Access token using the instructions here"
+  },
+  {
+    "objectID": "posts/blog-configuration/index.html#adding-custom-domain",
+    "href": "posts/blog-configuration/index.html#adding-custom-domain",
+    "title": "Configuring the blog",
+    "section": "Adding custom domain",
+    "text": "Adding custom domain\nWe configure only the main .github.io repository with a custom domain in Github as explained in the guide Managing a custom domain for your GitHub Pages site\nThe guide states that you must only configure a CNAME in the DNS settings but it was necessary to add four A Record as explained in the configuring an apex domain section of the same page."
+  },
+  {
+    "objectID": "posts/quarto-tips/index.html",
+    "href": "posts/quarto-tips/index.html",
+    "title": "Tips about building quarto documents",
+    "section": "",
+    "text": "ln [original filename] [link name]"
+  },
+  {
+    "objectID": "posts/quarto-tips/index.html#global-config-files",
+    "href": "posts/quarto-tips/index.html#global-config-files",
+    "title": "Tips about building quarto documents",
+    "section": "",
+    "text": "ln [original filename] [link name]"
+  },
+  {
+    "objectID": "posts/quarto-tips/index.html#comments",
+    "href": "posts/quarto-tips/index.html#comments",
+    "title": "Tips about building quarto documents",
+    "section": "Comments",
+    "text": "Comments\nInside a latex enumerate environment the comments must be made in the latex format, i.e., using the % sign. In general, outside latex environments html comments should be used"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Understanding Machine Learning",
+    "section": "",
+    "text": "Resources for building a Python package\n\n\n\n\n\n\npython\n\n\n\n\n\n\n\n\n\nJul 19, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n\n\n\n\n\n\nTips about building quarto documents\n\n\n\n\n\n\nquarto\n\n\nlatex\n\n\n\n\n\n\n\n\n\nJul 13, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n\n\n\n\n\n\nThings to follow\n\n\n\n\n\n\nreferences\n\n\n\n\n\n\n\n\n\nJul 12, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n\n\n\n\n\n\nCreating the website\n\n\n\n\n\n\nhtml\n\n\ncss\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n\n\n\n\n\n\nConfiguring the blog\n\n\n\n\n\n\nquarto\n\n\ngithub\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "posts/interesting-follows/index.html",
     "href": "posts/interesting-follows/index.html",
     "title": "Things to follow",
@@ -140,45 +105,52 @@
     "text": "People\n\nCosma Shalizi’s webpage and notebooks (last visited on July 12, 2023)."
   },
   {
-    "objectID": "posts/understanding-auroc/index.html",
-    "href": "posts/understanding-auroc/index.html",
-    "title": "Understanding AUROC",
+    "objectID": "posts/building-python-package/index.html",
+    "href": "posts/building-python-package/index.html",
+    "title": "Resources for building a Python package",
     "section": "",
-    "text": "Area under the ROC curve is a metric measuring the performance of a binary classifier. Its value can be interpreted as the probability that randomly chosen instance from the positive class will have a higher score than a randomly chosen instance of the negative class.\nThe question being studied in this post is: How is the previous statement derived and can we see examples of it?\n\nimport pandas as pd\nfrom sklearn.metrics import roc_auc_score\n\n\ndf_preds = pd.DataFrame({'y_true':[0, 0, 0, 0, 0, 1, 1, 1, 1, 1], \n                         'y_pred':[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}).reset_index()\n\n\nroc_auc_score(df_preds['y_true'], df_preds['y_pred'])\n\n1.0"
+    "text": "Packaging Python projects Tutorial from the Python packaging authority that walks you through how to package a simple python project\nPython packages Open source book by Tomas Beuzen & Tiffany Timbers that describes modern and efficient workflows for creating python packages"
   },
   {
-    "objectID": "posts/understanding-auroc/index.html#introduction",
-    "href": "posts/understanding-auroc/index.html#introduction",
-    "title": "Understanding AUROC",
-    "section": "",
-    "text": "Area under the ROC curve is a metric measuring the performance of a binary classifier. Its value can be interpreted as the probability that randomly chosen instance from the positive class will have a higher score than a randomly chosen instance of the negative class.\nThe question being studied in this post is: How is the previous statement derived and can we see examples of it?\n\nimport pandas as pd\nfrom sklearn.metrics import roc_auc_score\n\n\ndf_preds = pd.DataFrame({'y_true':[0, 0, 0, 0, 0, 1, 1, 1, 1, 1], \n                         'y_pred':[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}).reset_index()\n\n\nroc_auc_score(df_preds['y_true'], df_preds['y_pred'])\n\n1.0"
+    "objectID": "posts/building-python-package/index.html#which-backend-should-i-use-for-building-the-package",
+    "href": "posts/building-python-package/index.html#which-backend-should-i-use-for-building-the-package",
+    "title": "Resources for building a Python package",
+    "section": "Which backend should I use for building the package?",
+    "text": "Which backend should I use for building the package?\nFollowing the guidelines described here the main requirement for the backend is that it is PEP517 and PEP621 compliant. Popular options (at the time of writing of the blog post) are: flit-core, hatchling, pdm-backend, and setuptools (&gt;=61).\nSince the Pypa tutorial uses hatch I will stay with that one for the moment."
   },
   {
-    "objectID": "posts/eda-checklist/index.html",
-    "href": "posts/eda-checklist/index.html",
-    "title": "Exploratory data analysis of time series data",
-    "section": "",
-    "text": "Write and check assumptions about your data"
+    "objectID": "posts/building-python-package/index.html#how-to-distribute-the-package-without-putting-it-on-pypi",
+    "href": "posts/building-python-package/index.html#how-to-distribute-the-package-without-putting-it-on-pypi",
+    "title": "Resources for building a Python package",
+    "section": "How to distribute the package without putting it on Pypi?",
+    "text": "How to distribute the package without putting it on Pypi?\nThe package repositories section of Python packages states that you can use pip to install from a github repository. You can install from a repository branch, a specific commit, or a tag."
   },
   {
-    "objectID": "posts/eda-predictive-maintenance/index.html",
-    "href": "posts/eda-predictive-maintenance/index.html",
-    "title": "Exploratory data analysis of time series data",
-    "section": "",
-    "text": "We will use the dataset available here"
+    "objectID": "posts/building-python-package/index.html#how-to-install-the-package-after-its-been-build-locally-to-run-the-tests",
+    "href": "posts/building-python-package/index.html#how-to-install-the-package-after-its-been-build-locally-to-run-the-tests",
+    "title": "Resources for building a Python package",
+    "section": "How to install the package after its been build locally to run the tests?",
+    "text": "How to install the package after its been build locally to run the tests?\nI use conda as a package manager. I install the package using pip in a conda environment different than the one where I am developing the package and then run pytest on the folder"
   },
   {
-    "objectID": "posts/eda-predictive-maintenance/index.html#load-the-dataset",
-    "href": "posts/eda-predictive-maintenance/index.html#load-the-dataset",
-    "title": "Exploratory data analysis of time series data",
-    "section": "Load the dataset",
-    "text": "Load the dataset\n\nimport pandas as pd\nimport yaml\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom ydata_profiling import ProfileReport\n\n/home/renevalenzuela/anaconda3/envs/aatools/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html\n  from .autonotebook import tqdm as notebook_tqdm\n\n\n\nwith open(\"predictive_maintenance.yaml\", \"r\") as stream:\n    try:\n        df_meta = yaml.safe_load(stream)\n    except yaml.YAMLError as exc:\n        print(exc)\n\n\ndf = pd.read_parquet('./data/ai4i2020.parquet')"
+    "objectID": "posts/building-python-package/index.html#how-should-versioning-be-handled",
+    "href": "posts/building-python-package/index.html#how-should-versioning-be-handled",
+    "title": "Resources for building a Python package",
+    "section": "How should versioning be handled?",
+    "text": "How should versioning be handled?\nOne possibility is to use python semantic release tool. This requires that commits are in the Angular commit style."
   },
   {
-    "objectID": "posts/eda-predictive-maintenance/index.html#rotational-speed",
-    "href": "posts/eda-predictive-maintenance/index.html#rotational-speed",
-    "title": "Exploratory data analysis of time series data",
-    "section": "Rotational speed",
-    "text": "Rotational speed\n\nimport matplotlib.font_manager as font_manager\n\n# Add every font at the specified location\nfont_dir = ['./assets/Roboto_Condensed']\nfor font in font_manager.findSystemFonts(font_dir):\n    font_manager.fontManager.addfont(font)\n\n\n# Set font family globally\nfrom matplotlib import rcParams\nrcParams['axes.spines.top'] = False\nrcParams['axes.spines.right'] = False\nrcParams['font.family'] = 'Roboto Condensed Light'\n\n\n# Create the figure\nfig, ax = plt.subplots(1, 1, figsize=(8, 4))\nsns.histplot(data=df, x=\"rot_speed\", bins=40, ax=ax)\nax.set_xlabel(df_meta['features']['rot_speed']['name'])\nfig.tight_layout()\n\n\n\n\n\nprofile = ProfileReport(df, title=\"Profiling Report\")\n\n\nprofile.to_file(\"eda_profile_report.html\")\n\nSummarize dataset:   0%|          | 0/5 [00:00&lt;?, ?it/s]Summarize dataset:   0%|          | 0/17 [00:00&lt;?, ?it/s, Describe variable:Air temperature [K]]Summarize dataset:   6%|▌         | 1/17 [00:00&lt;00:02,  6.24it/s, Describe variable:Air temperature [K]]Summarize dataset:   6%|▌         | 1/17 [00:00&lt;00:02,  6.24it/s, Describe variable:Torque [Nm]]        Summarize dataset:  12%|█▏        | 2/17 [00:00&lt;00:02,  6.24it/s, Describe variable:Process temperature [K]]Summarize dataset:  18%|█▊        | 3/17 [00:00&lt;00:02,  6.24it/s, Describe variable:rot_speed]              Summarize dataset:  24%|██▎       | 4/17 [00:00&lt;00:02,  6.24it/s, Describe variable:Tool wear [min]]Summarize dataset:  29%|██▉       | 5/17 [00:00&lt;00:01,  6.24it/s, Describe variable:machine_failure]Summarize dataset:  35%|███▌      | 6/17 [00:00&lt;00:01,  8.08it/s, Describe variable:machine_failure]Summarize dataset:  35%|███▌      | 6/17 [00:00&lt;00:01,  8.08it/s, Describe variable:type]           Summarize dataset:  41%|████      | 7/17 [00:00&lt;00:01,  8.08it/s, Describe variable:HDF] Summarize dataset:  47%|████▋     | 8/17 [00:00&lt;00:01,  8.08it/s, Describe variable:OSF]Summarize dataset:  53%|█████▎    | 9/17 [00:00&lt;00:00,  8.08it/s, Describe variable:PWF]Summarize dataset:  59%|█████▉    | 10/17 [00:00&lt;00:00,  8.08it/s, Describe variable:TWF]Summarize dataset:  65%|██████▍   | 11/17 [00:00&lt;00:00,  8.08it/s, Describe variable:RNF]Summarize dataset:  71%|███████   | 12/17 [00:00&lt;00:00,  8.08it/s, Get variable types]   Summarize dataset:  72%|███████▏  | 13/18 [00:00&lt;00:00,  8.08it/s, Get dataframe statistics]Summarize dataset:  74%|███████▎  | 14/19 [00:00&lt;00:00,  8.08it/s, Calculate auto correlation]Summarize dataset:  79%|███████▉  | 15/19 [00:01&lt;00:00, 15.58it/s, Calculate auto correlation]Summarize dataset:  79%|███████▉  | 15/19 [00:01&lt;00:00, 15.58it/s, Get scatter matrix]        Summarize dataset:  34%|███▍      | 15/44 [00:01&lt;00:01, 15.58it/s, scatter Air temperature [K], Air temperature [K]]Summarize dataset:  36%|███▋      | 16/44 [00:01&lt;00:01, 15.58it/s, scatter Process temperature [K], Air temperature [K]]Summarize dataset:  39%|███▊      | 17/44 [00:01&lt;00:01, 13.76it/s, scatter Process temperature [K], Air temperature [K]]Summarize dataset:  39%|███▊      | 17/44 [00:01&lt;00:01, 13.76it/s, scatter rot_speed, Air temperature [K]]              Summarize dataset:  41%|████      | 18/44 [00:01&lt;00:01, 13.76it/s, scatter Torque [Nm], Air temperature [K]]Summarize dataset:  43%|████▎     | 19/44 [00:01&lt;00:02, 11.63it/s, scatter Torque [Nm], Air temperature [K]]Summarize dataset:  43%|████▎     | 19/44 [00:01&lt;00:02, 11.63it/s, scatter Tool wear [min], Air temperature [K]]Summarize dataset:  45%|████▌     | 20/44 [00:01&lt;00:02, 11.63it/s, scatter Air temperature [K], Process temperature [K]]Summarize dataset:  48%|████▊     | 21/44 [00:01&lt;00:02, 11.31it/s, scatter Air temperature [K], Process temperature [K]]Summarize dataset:  48%|████▊     | 21/44 [00:01&lt;00:02, 11.31it/s, scatter Process temperature [K], Process temperature [K]]Summarize dataset:  50%|█████     | 22/44 [00:01&lt;00:01, 11.31it/s, scatter rot_speed, Process temperature [K]]              Summarize dataset:  52%|█████▏    | 23/44 [00:02&lt;00:01, 10.66it/s, scatter rot_speed, Process temperature [K]]Summarize dataset:  52%|█████▏    | 23/44 [00:02&lt;00:01, 10.66it/s, scatter Torque [Nm], Process temperature [K]]Summarize dataset:  55%|█████▍    | 24/44 [00:02&lt;00:01, 10.66it/s, scatter Tool wear [min], Process temperature [K]]Summarize dataset:  57%|█████▋    | 25/44 [00:02&lt;00:01, 10.27it/s, scatter Tool wear [min], Process temperature [K]]Summarize dataset:  57%|█████▋    | 25/44 [00:02&lt;00:01, 10.27it/s, scatter Air temperature [K], rot_speed]          Summarize dataset:  59%|█████▉    | 26/44 [00:02&lt;00:01, 10.27it/s, scatter Process temperature [K], rot_speed]Summarize dataset:  61%|██████▏   | 27/44 [00:02&lt;00:01, 10.07it/s, scatter Process temperature [K], rot_speed]Summarize dataset:  61%|██████▏   | 27/44 [00:02&lt;00:01, 10.07it/s, scatter rot_speed, rot_speed]              Summarize dataset:  64%|██████▎   | 28/44 [00:02&lt;00:01, 10.02it/s, scatter rot_speed, rot_speed]Summarize dataset:  64%|██████▎   | 28/44 [00:02&lt;00:01, 10.02it/s, scatter Torque [Nm], rot_speed]Summarize dataset:  66%|██████▌   | 29/44 [00:02&lt;00:01,  9.88it/s, scatter Torque [Nm], rot_speed]Summarize dataset:  66%|██████▌   | 29/44 [00:02&lt;00:01,  9.88it/s, scatter Tool wear [min], rot_speed]Summarize dataset:  68%|██████▊   | 30/44 [00:02&lt;00:01,  9.90it/s, scatter Tool wear [min], rot_speed]Summarize dataset:  68%|██████▊   | 30/44 [00:02&lt;00:01,  9.90it/s, scatter Air temperature [K], Torque [Nm]]Summarize dataset:  70%|███████   | 31/44 [00:02&lt;00:01,  9.90it/s, scatter Process temperature [K], Torque [Nm]]Summarize dataset:  73%|███████▎  | 32/44 [00:02&lt;00:01,  9.76it/s, scatter Process temperature [K], Torque [Nm]]Summarize dataset:  73%|███████▎  | 32/44 [00:02&lt;00:01,  9.76it/s, scatter rot_speed, Torque [Nm]]              Summarize dataset:  75%|███████▌  | 33/44 [00:03&lt;00:01,  9.74it/s, scatter rot_speed, Torque [Nm]]Summarize dataset:  75%|███████▌  | 33/44 [00:03&lt;00:01,  9.74it/s, scatter Torque [Nm], Torque [Nm]]Summarize dataset:  77%|███████▋  | 34/44 [00:03&lt;00:01,  9.66it/s, scatter Torque [Nm], Torque [Nm]]Summarize dataset:  77%|███████▋  | 34/44 [00:03&lt;00:01,  9.66it/s, scatter Tool wear [min], Torque [Nm]]Summarize dataset:  80%|███████▉  | 35/44 [00:03&lt;00:00,  9.71it/s, scatter Tool wear [min], Torque [Nm]]Summarize dataset:  80%|███████▉  | 35/44 [00:03&lt;00:00,  9.71it/s, scatter Air temperature [K], Tool wear [min]]Summarize dataset:  82%|████████▏ | 36/44 [00:03&lt;00:00,  9.71it/s, scatter Process temperature [K], Tool wear [min]]Summarize dataset:  84%|████████▍ | 37/44 [00:03&lt;00:00,  9.76it/s, scatter Process temperature [K], Tool wear [min]]Summarize dataset:  84%|████████▍ | 37/44 [00:03&lt;00:00,  9.76it/s, scatter rot_speed, Tool wear [min]]              Summarize dataset:  86%|████████▋ | 38/44 [00:03&lt;00:00,  9.79it/s, scatter rot_speed, Tool wear [min]]Summarize dataset:  86%|████████▋ | 38/44 [00:03&lt;00:00,  9.79it/s, scatter Torque [Nm], Tool wear [min]]Summarize dataset:  89%|████████▊ | 39/44 [00:03&lt;00:00,  9.74it/s, scatter Torque [Nm], Tool wear [min]]Summarize dataset:  89%|████████▊ | 39/44 [00:03&lt;00:00,  9.74it/s, scatter Tool wear [min], Tool wear [min]]Summarize dataset:  87%|████████▋ | 40/46 [00:03&lt;00:00,  9.74it/s, Missing diagram bar]                     Summarize dataset:  89%|████████▉ | 41/46 [00:03&lt;00:00,  8.00it/s, Missing diagram bar]Summarize dataset:  89%|████████▉ | 41/46 [00:03&lt;00:00,  8.00it/s, Missing diagram matrix]Summarize dataset:  91%|█████████▏| 42/46 [00:04&lt;00:00,  8.33it/s, Missing diagram matrix]Summarize dataset:  91%|█████████▏| 42/46 [00:04&lt;00:00,  8.33it/s, Take sample]           Summarize dataset:  93%|█████████▎| 43/46 [00:04&lt;00:00,  8.33it/s, Detecting duplicates]Summarize dataset:  96%|█████████▌| 44/46 [00:04&lt;00:00,  8.33it/s, Get alerts]          Summarize dataset:  98%|█████████▊| 45/46 [00:04&lt;00:00,  8.33it/s, Get reproduction details]Summarize dataset: 100%|██████████| 46/46 [00:04&lt;00:00,  8.33it/s, Completed]               Summarize dataset: 100%|██████████| 46/46 [00:04&lt;00:00, 11.22it/s, Completed]\nGenerate report structure:   0%|          | 0/1 [00:00&lt;?, ?it/s]Generate report structure: 100%|██████████| 1/1 [00:02&lt;00:00,  2.79s/it]Generate report structure: 100%|██████████| 1/1 [00:02&lt;00:00,  2.79s/it]\nRender HTML:   0%|          | 0/1 [00:00&lt;?, ?it/s]Render HTML: 100%|██████████| 1/1 [00:00&lt;00:00,  1.24it/s]Render HTML: 100%|██████████| 1/1 [00:00&lt;00:00,  1.24it/s]\nExport report to file:   0%|          | 0/1 [00:00&lt;?, ?it/s]Export report to file: 100%|██████████| 1/1 [00:00&lt;00:00, 635.12it/s]"
+    "objectID": "posts/building-python-package/index.html#which-git-workflow-should-we-use-when-developing",
+    "href": "posts/building-python-package/index.html#which-git-workflow-should-we-use-when-developing",
+    "title": "Resources for building a Python package",
+    "section": "Which git workflow should we use when developing?",
+    "text": "Which git workflow should we use when developing?\nA complete example demonstrating a Feature Branch Flow is as follows. Assuming we have a repo setup with a main branch source\n\nExamples\ngit checkout main\ngit checkout -b develop\ngit checkout -b feature_branch\n# work happens on feature branch\ngit checkout develop\ngit merge feature_branch\ngit checkout main\ngit merge develop\ngit branch -d feature_branch"
+  },
+  {
+    "objectID": "posts/building-python-package/index.html#what-are-the-steps-for-creating-a-release",
+    "href": "posts/building-python-package/index.html#what-are-the-steps-for-creating-a-release",
+    "title": "Resources for building a Python package",
+    "section": "What are the steps for creating a release?",
+    "text": "What are the steps for creating a release?"
   }
 ]

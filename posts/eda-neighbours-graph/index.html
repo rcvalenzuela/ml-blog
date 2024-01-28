@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="René Valenzuela">
-<meta name="dcterms.date" content="2023-07-18">
+<meta name="dcterms.date" content="2023-12-07">
 
-<title>ml-blog - Modeling the outcome of soccer games</title>
+<title>ml-blog - Exploratory data analysis. Neighbours graph</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -106,35 +106,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -181,9 +152,10 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Modeling the outcome of soccer games</h1>
+      <h1 class="title">Exploratory data analysis. Neighbours graph</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">predictive-modeling</div>
+                <div class="quarto-category">networks</div>
+                <div class="quarto-category">eda</div>
               </div>
                   </div>
   </div>
@@ -201,14 +173,14 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 18, 2023</p>
+        <p class="date">December 7, 2023</p>
       </div>
     </div>
     
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">December 6, 2023</p>
+        <p class="date-modified">January 28, 2024</p>
       </div>
     </div>
       
@@ -226,83 +198,164 @@ window.Quarto = {
 
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>Our goal is to create a model to predict the outcome of La Liga games</p>
-</section>
-<section id="first-strategy-independent-poisson-modelsp" class="level1">
-<h1>First strategy: Independent Poisson modelsp</h1>
-<section id="high-level-approach" class="level2">
-<h2 class="anchored" data-anchor-id="high-level-approach">High level approach</h2>
+<p>For each variable in the dataset we compute instances neighbours as follows: if the variable is …</p>
 <ul>
-<li>We let the two teams participating in a game be <strong>Team A</strong> and <strong>Team B</strong>.</li>
-<li>We let the outcome of the game be <strong>W</strong> if the predicted result is that Team A wins, <strong>T</strong> if the game is predicted to end in a tie and <strong>L</strong> if Team A is predicted to lose the game.</li>
-<li>For each team we model the number of goals scored in a game as a Poisson distribution and we fit one based on historical data.</li>
-<li>We assume the number of goals scored by a team in a game is independent of the number of goals scored by the adversary and create a joint probability funcion as the product of the marginals</li>
-<li>We evaluate the joint distribution on a grid of possible scores</li>
-<li>We assign the game outcome as the one corresponding to the maximum probability of the game final score. That is, if the final score with highest probability is Team A: 3 and Team B: 2 then the outcome of the game will be <strong>W</strong></li>
+<li>… binary or nominal we say two instances are neighbours if they share the same value</li>
+<li>… ordinal we say two instances are neighbours if they share the same value or are close to some other values of the variable</li>
 </ul>
-</section>
-<section id="hashing-out-the-details" class="level2">
-<h2 class="anchored" data-anchor-id="hashing-out-the-details">Hashing out the details</h2>
-<section id="fitting-the-poisson-model" class="level3">
-<h3 class="anchored" data-anchor-id="fitting-the-poisson-model">Fitting the Poisson model</h3>
-<p>The probability mass function of a Poisson distributed random variable <span class="math inline">\(X\)</span> is: <span class="math display">\[
-\begin{equation*}
-p_{X}(k) = \mathbb{P}\text{r}\left(X = k\right) = e^{-\lambda}\frac{\lambda^{k}}{k!}
-\end{equation*}
-\]</span></p>
-<p>Given a sample of <span class="math inline">\(n\)</span> realizations of the random variable the MLE of <span class="math inline">\(\lambda\)</span> is simply the sample mean, i.e., <span class="math display">\[
-\tilde{\lambda}_{MLE} = \frac{1}{n}\sum_{i=1}^{n} x_{i}
-\]</span></p>
-<p>So, in order to fit the Poisson r.v. we must define a sample from which the <span class="math inline">\(\lambda\)</span> parameter will be estimated. The simplest possible approach is to use as a sample the results of the last <span class="math inline">\(N\)</span> games where <span class="math inline">\(N\)</span> is a fixed number. As a starting point we will choose <span class="math inline">\(N = 10\)</span>. Since some teams play more than one La Liga game a week 10 games roughky corresponds to a 2 month historic period.</p>
-</section>
-</section>
-<section id="dataset" class="level2">
-<h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>raw_df <span class="op">=</span> pd.read_csv(<span class="st">'train.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>all_results <span class="op">=</span> pd.read_parquet(data_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>raw_df.columns <span class="op">=</span> raw_df.columns.<span class="bu">str</span>.lower()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>all_results[<span class="st">'hp'</span>] <span class="op">=</span> np.where(all_results[<span class="st">'ftr'</span>] <span class="op">==</span> <span class="st">'H'</span>, <span class="dv">3</span>,</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                    np.where(all_results[<span class="st">'ftr'</span>] <span class="op">==</span> <span class="st">'D'</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>all_results[<span class="st">'ap'</span>] <span class="op">=</span> np.where(all_results[<span class="st">'ftr'</span>] <span class="op">==</span> <span class="st">'H'</span>, <span class="dv">0</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                    np.where(all_results[<span class="st">'ftr'</span>] <span class="op">==</span> <span class="st">'D'</span>, <span class="dv">1</span>, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>raw_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">passengerid</th>
+<th data-quarto-table-cell-role="th">survived</th>
+<th data-quarto-table-cell-role="th">pclass</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">age</th>
+<th data-quarto-table-cell-role="th">sibsp</th>
+<th data-quarto-table-cell-role="th">parch</th>
+<th data-quarto-table-cell-role="th">ticket</th>
+<th data-quarto-table-cell-role="th">fare</th>
+<th data-quarto-table-cell-role="th">cabin</th>
+<th data-quarto-table-cell-role="th">embarked</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>0</td>
+<td>3</td>
+<td>Braund, Mr. Owen Harris</td>
+<td>male</td>
+<td>22.0</td>
+<td>1</td>
+<td>0</td>
+<td>A/5 21171</td>
+<td>7.2500</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+<td>female</td>
+<td>38.0</td>
+<td>1</td>
+<td>0</td>
+<td>PC 17599</td>
+<td>71.2833</td>
+<td>C85</td>
+<td>C</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>1</td>
+<td>3</td>
+<td>Heikkinen, Miss. Laina</td>
+<td>female</td>
+<td>26.0</td>
+<td>0</td>
+<td>0</td>
+<td>STON/O2. 3101282</td>
+<td>7.9250</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+<td>female</td>
+<td>35.0</td>
+<td>1</td>
+<td>0</td>
+<td>113803</td>
+<td>53.1000</td>
+<td>C123</td>
+<td>S</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>0</td>
+<td>3</td>
+<td>Allen, Mr. William Henry</td>
+<td>male</td>
+<td>35.0</td>
+<td>0</td>
+<td>0</td>
+<td>373450</td>
+<td>8.0500</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
 </div>
 <div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>hometeam_points <span class="op">=</span> (all_results[[<span class="st">'season'</span>, <span class="st">'hometeam'</span>, <span class="st">'hp'</span>]]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                   .rename(columns<span class="op">=</span>{<span class="st">'hometeam'</span>:<span class="st">'team'</span>, <span class="st">'hp'</span>:<span class="st">'points'</span>}))</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>awayteam_points <span class="op">=</span> (all_results[[<span class="st">'season'</span>, <span class="st">'awayteam'</span>, <span class="st">'ap'</span>]]</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                   .rename(columns<span class="op">=</span>{<span class="st">'awayteam'</span>:<span class="st">'team'</span>, <span class="st">'ap'</span>:<span class="st">'points'</span>}))</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>team_points <span class="op">=</span> pd.concat([hometeam_points, awayteam_points])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>index_cols <span class="op">=</span> [<span class="st">'passengerid'</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>tgt_col <span class="op">=</span> [<span class="st">'survived'</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>bin_cols <span class="op">=</span> [<span class="st">'sex'</span>]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>nom_cols <span class="op">=</span> [<span class="st">'name'</span>, <span class="st">'ticket'</span>, <span class="st">'cabin'</span>, <span class="st">'embarked'</span>]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>ord_cols <span class="op">=</span> [<span class="st">'pclass'</span>, <span class="st">'sibsp'</span>, <span class="st">'parch'</span>]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>rat_cols <span class="op">=</span> [<span class="st">'age'</span>, <span class="st">'fare'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="sex" class="level1">
+<h1>Sex</h1>
 <div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>season_standings <span class="op">=</span> (team_points</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                    .groupby([<span class="st">'season'</span>, <span class="st">'team'</span>])</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                    .<span class="bu">sum</span>()</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                    .sort_values([<span class="st">'season'</span>, <span class="st">'points'</span>], ascending<span class="op">=</span>[<span class="va">True</span>, <span class="va">False</span>])</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                    .reset_index())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find neighbours based on sex column</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>nbh_cols <span class="op">=</span> [<span class="st">'sex'</span>]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>sex_nbh <span class="op">=</span> raw_df[index_cols <span class="op">+</span> nbh_cols].copy()</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>sex_nbh <span class="op">=</span> (sex_nbh.merge(sex_nbh, on<span class="op">=</span><span class="st">'sex'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>           .rename(columns<span class="op">=</span>{<span class="st">'passengerid_x'</span>: <span class="st">'src'</span>, <span class="st">'passengerid_y'</span>: <span class="st">'dest'</span>}))</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>sex_nbh <span class="op">=</span> sex_nbh.loc[sex_nbh.src <span class="op">&lt;</span> sex_nbh.dest, [<span class="st">'src'</span>, <span class="st">'dest'</span>]]</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>sex_nbh[<span class="st">'weight'</span>] <span class="op">=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="passenger-class" class="level1">
+<h1>Passenger class</h1>
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ht_res <span class="op">=</span> (all_results[[<span class="st">'season'</span>, <span class="st">'date'</span>, <span class="st">'time'</span>, <span class="st">'hometeam'</span>, <span class="st">'fthg'</span>]]</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>          .copy()</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>          .rename(columns<span class="op">=</span>{<span class="st">'hometeam'</span>:<span class="st">'team'</span>, <span class="st">'fthg'</span>:<span class="st">'goals'</span>}))</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>at_res <span class="op">=</span> (all_results[[<span class="st">'season'</span>, <span class="st">'date'</span>, <span class="st">'time'</span>, <span class="st">'awayteam'</span>, <span class="st">'ftag'</span>]]</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>          .copy()</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>          .rename(columns<span class="op">=</span>{<span class="st">'awayteam'</span>:<span class="st">'team'</span>, <span class="st">'ftag'</span>:<span class="st">'goals'</span>}))</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>team_res <span class="op">=</span> (pd.concat([ht_res, at_res])</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>            .sort_values([<span class="st">'team'</span>, <span class="st">'date'</span>])</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            .reset_index(drop<span class="op">=</span><span class="va">True</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find neighbours based on passenger class</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>nbh_cols <span class="op">=</span> [<span class="st">'pclass'</span>]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>pclass_nbh <span class="op">=</span> raw_df[index_cols <span class="op">+</span> nbh_cols].copy()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>pclass_nbh <span class="op">=</span> (pclass_nbh.merge(pclass_nbh, on<span class="op">=</span><span class="st">'pclass'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>              .rename(columns<span class="op">=</span>{<span class="st">'passengerid_x'</span>: <span class="st">'src'</span>, <span class="st">'passengerid_y'</span>: <span class="st">'dest'</span>}))</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>pclass_nbh <span class="op">=</span> pclass_nbh.loc[pclass_nbh.src <span class="op">&lt;</span> pclass_nbh.dest, [<span class="st">'src'</span>, <span class="st">'dest'</span>]]</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>pclass_nbh[<span class="st">'weight'</span>] <span class="op">=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="sibsp" class="level1">
+<h1>Sibsp</h1>
 <div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>team_res.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>raw_df[<span class="st">'sibsp'</span>].value_counts().to_frame().reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
@@ -311,53 +364,45 @@ p_{X}(k) = \mathbb{P}\text{r}\left(X = k\right) = e^{-\lambda}\frac{\lambda^{k}}
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">season</th>
-<th data-quarto-table-cell-role="th">date</th>
-<th data-quarto-table-cell-role="th">time</th>
-<th data-quarto-table-cell-role="th">team</th>
-<th data-quarto-table-cell-role="th">goals</th>
+<th data-quarto-table-cell-role="th">sibsp</th>
+<th data-quarto-table-cell-role="th">count</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>s_21_22</td>
-<td>2021-08-14</td>
-<td>21:00</td>
-<td>Alaves</td>
-<td>1</td>
+<td>0</td>
+<td>608</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>s_21_22</td>
-<td>2021-08-21</td>
-<td>16:00</td>
-<td>Alaves</td>
-<td>0</td>
+<td>1</td>
+<td>209</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>s_21_22</td>
-<td>2021-08-27</td>
-<td>21:15</td>
-<td>Alaves</td>
-<td>0</td>
+<td>2</td>
+<td>28</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>s_21_22</td>
-<td>2021-09-18</td>
-<td>20:00</td>
-<td>Alaves</td>
-<td>0</td>
+<td>4</td>
+<td>18</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>s_21_22</td>
-<td>2021-09-22</td>
-<td>18:30</td>
-<td>Alaves</td>
-<td>0</td>
+<td>3</td>
+<td>16</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>8</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>5</td>
+<td>5</td>
 </tr>
 </tbody>
 </table>
@@ -365,28 +410,70 @@ p_{X}(k) = \mathbb{P}\text{r}\left(X = k\right) = e^{-\lambda}\frac{\lambda^{k}}
 </div>
 </div>
 </div>
+<p>We decide to group as follows:</p>
+<ul>
+<li>0: 0</li>
+<li>1: 1</li>
+<li>2: 2, 3</li>
+<li>3: 2, 3, 4</li>
+<li>4: &gt;= 4</li>
+</ul>
 <div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>team_res[<span class="st">'ma10'</span>] <span class="op">=</span> (team_res</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                    .groupby(<span class="st">'team'</span>)[<span class="st">'goals'</span>]</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                    .rolling(<span class="dv">10</span>, min_periods<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                    .mean()</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                    .reset_index(drop<span class="op">=</span><span class="va">True</span>))</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>team_res[<span class="st">'games_played'</span>] <span class="op">=</span> (team_res</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                            .sort_values(<span class="st">'date'</span>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                            .groupby([<span class="st">'season'</span>, <span class="st">'team'</span>])</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                            .cumcount()<span class="op">+</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>nbh_cols <span class="op">=</span> [<span class="st">'sibsp'</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sibsp_nbh <span class="op">=</span> raw_df[index_cols <span class="op">+</span> nbh_cols].copy()</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>sibsp_l2 <span class="op">=</span> sibsp_nbh[sibsp_nbh.sibsp <span class="op">==</span> <span class="dv">2</span>]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>sibsp_l3 <span class="op">=</span> sibsp_nbh[sibsp_nbh.sibsp <span class="op">==</span> <span class="dv">3</span>]</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>sibsp_l4 <span class="op">=</span> sibsp_nbh[sibsp_nbh.sibsp <span class="op">==</span> <span class="dv">4</span>]</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>sibsp_l4p <span class="op">=</span> sibsp_nbh[sibsp_nbh.sibsp <span class="op">&gt;=</span> <span class="dv">4</span>]</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Pairs where sibsp value is the same 0-0, 1-1, 2-2, ... and so on</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>sibsp_nbh <span class="op">=</span> (sibsp_nbh.merge(sibsp_nbh, on<span class="op">=</span><span class="st">'sibsp'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>              .rename(columns<span class="op">=</span>{<span class="st">'passengerid_x'</span>: <span class="st">'src'</span>, <span class="st">'passengerid_y'</span>: <span class="st">'dest'</span>}))</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>sibsp_nbh_23 <span class="op">=</span> (sibsp_l2[[<span class="st">'passengerid'</span>]].merge(sibsp_l3[[<span class="st">'passengerid'</span>]], how<span class="op">=</span><span class="st">'cross'</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                 .rename(columns<span class="op">=</span>{<span class="st">'passengerid_x'</span>: <span class="st">'src'</span>, <span class="st">'passengerid_y'</span>: <span class="st">'dest'</span>}))</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>sibsp_nbh_23.values.sort()</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove duplicated</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>sibsp_nbh <span class="op">=</span> sibsp_nbh.loc[sibsp_nbh.src <span class="op">&lt;</span> sibsp_nbh.dest, [<span class="st">'src'</span>, <span class="st">'dest'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>As a check, we verify the how many teams have played how many games. In La Liga, 20 teams play 38 games each during the course of the season. At the end of the season 3 teams are relegated to the second division and 3 are promoted. Hence, over the course of two seasons there should be 17 teams that played both seasons and 6 teams that only played one season.</p>
+</section>
+<section id="generate-neighbours-overall-edges" class="level1">
+<h1>Generate neighbours overall edges</h1>
 <div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>(team_res[[<span class="st">'team'</span>, <span class="st">'date'</span>]]</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a> .groupby(<span class="st">'team'</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a> .count()</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a> .reset_index()</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a> .rename(columns<span class="op">=</span>{<span class="st">'date'</span>:<span class="st">'n_games'</span>})</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a> .groupby(<span class="st">'n_games'</span>)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a> .count()</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a> .reset_index())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add neighbours edges between every </span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>nbh_edges <span class="op">=</span> pd.concat([sex_nbh, pclass_nbh])</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>nbh_edges <span class="op">=</span> nbh_edges.groupby([<span class="st">'src'</span>, <span class="st">'dest'</span>]).<span class="bu">sum</span>().reset_index()</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># In our first analysis, since we calculated edges over two variables we will say two instances are neighbours if they were close over each of the two variables</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>n_feats <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>nbh_edges <span class="op">=</span> nbh_edges.loc[nbh_edges.weight <span class="op">==</span> n_feats]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the graph</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>nbh_nodes <span class="op">=</span> <span class="bu">list</span>(raw_df.passengerid.unique())</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>nd_color <span class="op">=</span> [<span class="st">'red'</span> <span class="cf">if</span> surv <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> <span class="st">'blue'</span> <span class="cf">for</span> surv <span class="kw">in</span> raw_df.survived]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>nbh <span class="op">=</span> nx.Graph()</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>nbh.add_nodes_from(nbh_nodes)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>nbh.add_edges_from([(src, dest) <span class="cf">for</span> src,dest <span class="kw">in</span> <span class="bu">zip</span>(nbh_edges.src, nbh_edges.dest)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="compute-connected-components" class="level1">
+<h1>Compute connected components</h1>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>conn_comp <span class="op">=</span> nx.connected_components(nbh)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>dfs <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> conn_comp:</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    dfs.append(pd.DataFrame(data<span class="op">=</span>{<span class="st">'passengerid'</span>:<span class="bu">list</span>(c), <span class="st">'conn_comp_idx'</span>:idx}))</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    idx <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>nbh_tgt <span class="op">=</span> pd.concat(dfs).sort_values(<span class="st">'passengerid'</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>nbh_tgt <span class="op">=</span> nbh_tgt.merge(raw_df[index_cols <span class="op">+</span> tgt_col], on<span class="op">=</span><span class="st">'passengerid'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>nbh_tgt.groupby(<span class="st">'conn_comp_idx'</span>).agg({<span class="st">'survived'</span>: [<span class="st">'count'</span>, <span class="st">'sum'</span>, <span class="st">'mean'</span>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
 
@@ -394,20 +481,57 @@ p_{X}(k) = \mathbb{P}\text{r}\left(X = k\right) = e^{-\lambda}\frac{\lambda^{k}}
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">n_games</th>
-<th data-quarto-table-cell-role="th">team</th>
+<th colspan="3" data-quarto-table-cell-role="th" data-halign="left">survived</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">count</th>
+<th data-quarto-table-cell-role="th">sum</th>
+<th data-quarto-table-cell-role="th">mean</th>
+</tr>
+<tr class="header">
+<th data-quarto-table-cell-role="th">conn_comp_idx</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>38</td>
-<td>6</td>
+<td>347</td>
+<td>47</td>
+<td>0.135447</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
+<td>94</td>
+<td>91</td>
+<td>0.968085</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>144</td>
+<td>72</td>
+<td>0.500000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>122</td>
+<td>45</td>
+<td>0.368852</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
 <td>76</td>
+<td>70</td>
+<td>0.921053</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>108</td>
 <td>17</td>
+<td>0.157407</td>
 </tr>
 </tbody>
 </table>
@@ -415,33 +539,26 @@ p_{X}(k) = \mathbb{P}\text{r}\left(X = k\right) = e^{-\lambda}\frac{\lambda^{k}}
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select season</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>the_season <span class="op">=</span> <span class="st">'s_21_22'</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create wide dataset for heatmap visualization</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>team_res_wide <span class="op">=</span> (team_res[team_res.season <span class="op">==</span> the_season]</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                 .pivot(index<span class="op">=</span><span class="st">"team"</span>, columns<span class="op">=</span><span class="st">"games_played"</span>, values<span class="op">=</span><span class="st">"ma10"</span>))</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorder index by end of season standings</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>team_res_wide.index <span class="op">=</span> pd.CategoricalIndex(team_res_wide.index, </span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    categories<span class="op">=</span>season_standings[season_standings.season <span class="op">==</span> the_season][<span class="st">'team'</span>])</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>team_res_wide.sort_index(level<span class="op">=</span><span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.heatmap(team_res_wide, linewidths<span class="op">=</span><span class="fl">0.4</span>, cmap<span class="op">=</span>sns.color_palette(<span class="st">"crest"</span>, as_cmap<span class="op">=</span><span class="va">True</span>))</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="visualization" class="level1">
+<h1>Visualization</h1>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the graph visualization</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>plot_options <span class="op">=</span> {<span class="st">"node_size"</span>: <span class="dv">10</span>, <span class="st">"with_labels"</span>: <span class="va">False</span>, <span class="st">"width"</span>: <span class="fl">0.15</span>}</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>pos <span class="op">=</span> nx.spring_layout(nbh, iterations<span class="op">=</span><span class="dv">15</span>, seed<span class="op">=</span><span class="dv">1721</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">9</span>))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>ax.axis(<span class="st">"off"</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>nx.draw_networkx(nbh, pos<span class="op">=</span>pos, ax<span class="op">=</span>ax, <span class="op">**</span>plot_options)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/cell-13-output-1.png" width="617" height="429" class="figure-img"></p>
+<p><img src="index_files/figure-html/cell-15-output-1.png" width="1135" height="684" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
