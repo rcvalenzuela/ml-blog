@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "posts/conformal-prediction/index.html",
+    "href": "posts/conformal-prediction/index.html",
+    "title": "What is … conformal prediction",
+    "section": "",
+    "text": "Conformal prediction is a machine learning framework for uncertainty quantification. It produces statistically valid prediction regions for any underlying point predictor only assuming exchangeability of the data [1]. This is in contrast to traditional point prediction frameworks, which provide a single best estimate for a target variable and often do not quantify the uncertainty associated with that estimate.\nConformal prediction was originally designed for an on-line setting in which labels are predicted successively, each one being revealed before the next is predicted. It requires a user-specified significance level for which the algorithm should produce its predictions. This significance level restricts the frequency of errors that the algorithm is allowed to make.\nFrom the blog post [2] some advantages of conformal prediction are:"
+  },
+  {
+    "objectID": "posts/conformal-prediction/index.html#references",
+    "href": "posts/conformal-prediction/index.html#references",
+    "title": "What is … conformal prediction",
+    "section": "References",
+    "text": "References\n\nConformal Prediction (Wikipedia)\nIntroduction To Conformal Prediction With Python\nConformal Prediction for Machine Learning Classification —From the Ground Up"
+  },
+  {
     "objectID": "posts/website-creation/index.html",
     "href": "posts/website-creation/index.html",
     "title": "Creating the website",
@@ -81,7 +95,7 @@
     "href": "index.html",
     "title": "Understanding Machine Learning",
     "section": "",
-    "text": "Resources for building a Python package\n\n\n\n\n\n\npython\n\n\n\n\n\n\n\n\n\nJul 19, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n\n\n\n\n\n\nTips about building quarto documents\n\n\n\n\n\n\nquarto\n\n\nlatex\n\n\n\n\n\n\n\n\n\nJul 13, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n\n\n\n\n\n\nThings to follow\n\n\n\n\n\n\nreferences\n\n\n\n\n\n\n\n\n\nJul 12, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n\n\n\n\n\n\nCreating the website\n\n\n\n\n\n\nhtml\n\n\ncss\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n\n\n\n\n\n\nConfiguring the blog\n\n\n\n\n\n\nquarto\n\n\ngithub\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\nNo matching items"
+    "text": "What is … conformal prediction\n\n\n\n\n\n\npredictive-modeling\n\n\n\n\n\n\n\n\n\nJan 9, 2024\n\n\nRené Valenzuela\n\n\n\n\n\n\n\n\n\n\n\n\nResources for building a Python package\n\n\n\n\n\n\npython\n\n\n\n\n\n\n\n\n\nJul 19, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n\n\n\n\n\n\nTips about building quarto documents\n\n\n\n\n\n\nquarto\n\n\nlatex\n\n\n\n\n\n\n\n\n\nJul 13, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n\n\n\n\n\n\nThings to follow\n\n\n\n\n\n\nreferences\n\n\n\n\n\n\n\n\n\nJul 12, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n\n\n\n\n\n\nCreating the website\n\n\n\n\n\n\nhtml\n\n\ncss\n\n\n\n\n\n\n\n\n\nMay 24, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\n\n\n\n\n\n\nConfiguring the blog\n\n\n\n\n\n\nquarto\n\n\ngithub\n\n\n\n\n\n\n\n\n\nMay 18, 2023\n\n\nRené Valenzuela\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/interesting-follows/index.html",

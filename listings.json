@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/conformal-prediction/index.html",
       "/posts/building-python-package/index.html",
       "/posts/quarto-tips/index.html",
       "/posts/interesting-follows/index.html",
