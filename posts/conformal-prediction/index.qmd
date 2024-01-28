@@ -4,7 +4,7 @@ author: "René Valenzuela"
 date: "2024-01-09"
 date-modified: last-modified
 categories: [predictive-modeling]
-draft: true
+draft: false
 ---
 
 Conformal prediction is a machine learning framework for uncertainty quantification. It produces statistically valid prediction regions for any underlying point predictor only assuming exchangeability of the data [1]. This is in contrast to traditional point prediction frameworks, which provide a single best estimate for a target variable and often do not quantify the uncertainty associated with that estimate.
