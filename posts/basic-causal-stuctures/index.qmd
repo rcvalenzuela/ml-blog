@@ -18,11 +18,54 @@ from sklearn.linear_model import LinearRegression
 rng = np.random.default_rng()
 ```
 
-## What is correlation
+## Introduction
 
-## What is causation
+We consider the problem of estimating the effect of variable $X$ on a target variable $Y$ from a sample obtained from an unnknown distribution. For simplicity in our first example both $X$ and $Y$ are binary variables. Also, there is an extra variable $Z$ which is also binary.
 
-## Correlation does not imply causation
+```{python}
+#| echo: False
+
+n_corr_not_cause = 10000
+
+# Create background factors
+u_x = rng.standard_normal(n_corr_not_cause)
+u_y = rng.standard_normal(n_corr_not_cause)
+u_z = rng.standard_normal(n_corr_not_cause)
+
+# Define variables
+z = 1*(u_z > 0)
+x = 1*(z + u_x > 0.5)
+y = 1*(x + z + u_y > 2)
+y_dox = 1*(1 + z + u_y > 2)
+```
+
+```{python}
+#| echo: False
+obs = pd.DataFrame({'X':x, 'Z':z, 'Y':y})
+obs.head(10)
+```
+
+At first we assume that we have no additional knowledge.
+
+The first step is to understand what do we mean by the effect of $X$ on $Y$. Here the implicit question is **if I set the value of $X$ to 1 how will I affect the value of $Y$**
+
+One possibility to estimate this effect would be
+
+**Correlation does not imply causation** refers to the inability to legitimately deduce a cause-and-effect relationship between two events or variables solely on the basis of an observed association or correlation between them <a href="#wik_corrnotcause">(Correlation does not imply causation)</a>. Although this statement agrees with what our common sense tells us only recently a proper causal inference framework has been developed which allows us to formally specify the difference.
+
+
+
+Correlation in its broadest sense may indicate any type of association, i.e. any statistical relationship whether causal or not, between two random variables. This can be formally written as
+$$
+\mathbb{E}\left[ Y \mid X = x \right] = f(x)
+$$
+
+
+
+1) We want to show that the magnitude of a direct causal effect is different from the value of the variable condtional on the other one being set to a given value
+2) Understand the correct approach to fit a model given the data and its correponding SCM
+
+## Example
 
 We consider the following structural causal model (as defined in Section 1.5 of <a href="#cis">(Pearl 2016)</a>)
 $$
@@ -45,21 +88,6 @@ digraph G {
 ```
 
 We will assume $U_{i}$ are standard normal random variables. Recall that for binary variables probabilities are equal to means and computing conditional probabilities is particularly easy.
-
-```{python}
-n_corr_not_cause = 10000
-
-# Create background factors
-u_x = rng.standard_normal(n_corr_not_cause)
-u_y = rng.standard_normal(n_corr_not_cause)
-u_z = rng.standard_normal(n_corr_not_cause)
-
-# Define variables
-z = 1*(u_z > 0)
-x = 1*(z + u_x > 0.5)
-y = 1*(x + z + u_y > 2)
-y_dox = 1*(1 + z + u_y > 2)
-```
 
 We see that $P\left( Y \mid \text{do}\left(X\right)\right)$ is different from $P\left( Y \mid X = 1\right)$
 
@@ -130,3 +158,4 @@ print(reg_adj.coef_, reg_adj.intercept_)
 
 1. Section 1.6 R examples. Causal Data Science with Directed Acyclic graphs. Udemy
 2. <a name="cis">Pearl 2016</a>: Causal inference in Statistics. A primer. Judea Pearl, Madelyn Glymour and Nicholas P. Jewell
+3. <a name="#wik_corrnotcause">Correlation does not imply causation</a>: Wikipedia article [Correlation does not imply causation](https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation)
